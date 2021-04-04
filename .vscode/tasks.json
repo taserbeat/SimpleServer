@@ -1,0 +1,32 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "go run main.go",
+        },
+        {
+            "label": "docker-build",
+            "type": "shell",
+            "command": "docker build -t taserbeat/echo:latest .",
+        },
+        {
+            "label": "docker-run",
+            "type": "shell",
+            "command": "docker run --rm -d --name simple_server -p 9000:8080 taserbeat/echo:latest",
+        },
+        {
+            "label": "docker-kill",
+            "type": "shell",
+            "command": "docker kill simple_server",
+        },
+        {
+            "label": "docker-rmi",
+            "type": "shell",
+            "command": "docker rmi taserbeat/echo:latest",
+        },
+    ]
+}
